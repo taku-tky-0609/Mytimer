@@ -88,6 +88,7 @@ class ViewController: UIViewController {
             countDownLabel.text = "残り\(remainCount)秒"
             //残り時間を戻り値に設定
             return remainCount
+            
         }
     
     //経過時間の処理
@@ -101,6 +102,14 @@ class ViewController: UIViewController {
             count = 0
             //タイマー停止
             timer.invalidate()
+            //ダイヤログを作成
+            let alertController = UIAlertController(title: "終了", message: "タイマー終了時間です", preferredStyle: .alert)
+            //ダイヤログに表示させるOKボタンを作成
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            //アクションを追加
+            alertController.addAction(defaultAction)
+            //ダイヤログの表示
+            present(alertController, animated: true, completion: nil)
         }
     }
     
